@@ -1,18 +1,150 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Навигация по Архивам</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифровой Архив | Навигация</title>
     <style>
-        body { font-family: sans-serif; text-align: center; background: #f0f2f5; padding: 50px; }
-        .card { background: white; padding: 20px; margin: 10px; border-radius: 10px; display: inline-block; width: 250px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); cursor: pointer; text-decoration: none; color: #333; }
-        .card:hover { transform: translateY(-5px); transition: 0.3s; }
-        h1 { color: #1a73e8; }
+        :root {
+            --primary: #1a73e8;
+            --accent: #fbbc04;
+            --bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            margin: 15px 0 10px;
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .badge {
+            background: var(--primary);
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .footer {
+            margin-top: 50px;
+            font-size: 0.8rem;
+            color: #475569;
+        }
     </style>
 </head>
 <body>
-    <h1>Выберите раздел библиотеки</h1>
-    <a href="main.html" class="card"><h3>📦 Основной Архив</h3><p>Общий фонд книг</p></a>
-    <a href="encyclopedia.html" class="card"><h3>📚 Энциклопедии</h3><p>Справочные издания</p></a>
-    <a href="extra.html" class="card"><h3>➕ Дополнительно</h3><p>Новые поступления</p></a>
+
+    <div class="header">
+        <h1>Цифровой Архив</h1>
+        <p class="subtitle">Интерактивная карта фондов библиотеки</p>
+    </div>
+
+    <div class="container">
+        <a href="main.html" class="card">
+            <div class="badge">190 000+ файлов</div>
+            <i>📦</i>
+            <h3>Основной Архив</h3>
+            <p>Глобальный фонд: Техника, история, учебники СССР и редкие оцифровки.</p>
+        </a>
+
+        <a href="encyclopedia.html" class="card">
+            <div class="badge">Брокгауз / Аванта</div>
+            <i>📚</i>
+            <h3>Энциклопедии</h3>
+            <p>Собрания Аванта+, Брокгауз и Эфрон, тематические справочники.</p>
+        </a>
+
+        <a href="extra.html" class="card">
+            <div class="badge">Новинки</div>
+            <i>🚀</i>
+            <h3>Дополнения</h3>
+            <p>Военные архивы, свежие поступления и файлы «вне категорий».</p>
+        </a>
+    </div>
+	
+    <div class="contact-section">
+       <p> <a href="https://t.me/bookman_archive" class="btn btn-tg">
+            <span>📢 Канал в Telegram</span>
+        </a>
+    </div>
+	
+    <div class="footer">
+        &copy; 2026 Цифровой Архив. Интерактивная навигация на базе Snap2HTML.
+    </div>
+
 </body>
 </html>
